@@ -11,8 +11,8 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
-    <div id="game-window" class="container-fluid">
+<body class="container-fluid">
+    <div id="title-window">
         <br>
         <div class="row">
             <div class="room-border title-box title-logo col-xs-8 col-xs-offset-2"></div>
@@ -26,9 +26,32 @@
             </div>
         </div>
     </div>
+    <div id="game-window" style="display: none">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2" id="message-box">Welcome, {{character.name}}</div>
+            <div class="room-border title-box col-xs-8 col-xs-offset-2">
+                <div class="room-border" style="height: 200px; width: 300px;">
+                    <span id="hero">
+                <img src="./content/img/hero-icon.svg" alt="">
+            </span>
+                </div>
+            </div>
+            <div class="col-xs-8 col-xs-offset-2 yellow-text" id="status-bar">
+                <ul class="list-inline">
+                    <li>Level: <span id="sb-level"></span></li>
+                    <li>Hits: <span id="sb-hp"></span></li>
+                    <li>Str: <span id="sb-str"></span></li>
+                    <li>Gold: <span id="sb-gold"></span></li>
+                    <li>Armor: <span id="sb-armor"></span></li>
+                    <li>Exp: <span id="sb-exp"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
 <footer>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>

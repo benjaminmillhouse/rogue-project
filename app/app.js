@@ -26,20 +26,10 @@ $(document).ready(function () {
      * @param {string} url - The url of the map that you want to display
      */
     function getMap(url) {
-        $.ajax({
-            url: url,
-            dataType: 'html',
-            success: function (data) {
-                $('#game-window').html(data);
-                $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
-                updateStatusBar();
-            }
-        })
-        // $.get(url, function (data) {
-        //     $('#game-window').html(data);
-        //     $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
-        //     updateStatusBar();
-        // });
+        $('#title-window').css('display', 'none');
+        $('#game-window').css('display', 'initial');
+        $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
+        updateStatusBar();
     }
 
     /**
