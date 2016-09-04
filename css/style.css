@@ -8,10 +8,18 @@ body {
     font-size: 2em;
     padding-top: 20px;
 }
+#hero { 
+    position: absolute; 
+    font-size: 0;
+}
 .room-border {
     border-color: rgb(169, 85, 20);
     border-style: double;
     border-width: 5px;
+    position: relative;
+}
+.room {
+    background: url('../content/img/room-bg.png');
 }
 .title-box {
     height: 500px;
