@@ -6,6 +6,7 @@ body {
     background-color: black;
     color: rgb(170, 170, 170);
     font-size: 2em;
+    padding-top: 20px;
 }
 .room-border {
     border-color: rgb(169, 85, 20);
@@ -14,8 +15,12 @@ body {
 }
 .title-box {
     height: 500px;
-    margin-top: 20px;
+}
+.title-logo {
     background: url('../content/img/title-logo.jpg') center/contain no-repeat;
+}
+.yellow-text {
+    color: rgb(255, 254, 100);
 }
 .cursor {
     display: inline-block;
