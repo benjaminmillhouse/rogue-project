@@ -52,6 +52,20 @@ $(document).ready(function () {
     }
 });
 
+// Character class for the enemy
+
+function Enemy(name, level) {
+    this.armor = level;
+    this.hp = 10 + (level - 1) * 5;
+    this.hpMax = this.hp;
+    this.expAward = 1 * level;
+    this.level = level;
+    this.name = name;
+    this.str = 10 + (level - 1);
+    this.strMod = 0;
+}
+console.log(new Enemy('bob', 20));
+
 /**
  * @class
  * This is the base Character class for the hero character
@@ -68,6 +82,7 @@ function Character() {
     this.strMod = 0;
     this.tnl = 10;
 }
+
 /**
  * This processes a level increase for the character
  */
