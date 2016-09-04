@@ -1,3 +1,8 @@
+// 37 - left
+// 38 - up
+// 39 - right
+// 40 - down
+
 $(document).ready(function () {
     var character = new Character();
     $('input[name="name-input"]').keypress(function (event) {
@@ -8,6 +13,11 @@ $(document).ready(function () {
             getMap('./dungeon.html');
         }
     });
+    $('body').keypress(function (event) {
+        if (event.keyCode === 39) {
+            // $('#hero')[0].style.left = 40;
+        }
+    })
 
     /**
      * This function loads the HTML file for the passed-in map, and udpates
@@ -16,16 +26,25 @@ $(document).ready(function () {
      * @param {string} url - The url of the map that you want to display
      */
     function getMap(url) {
-        $.get(url, function (data) {
-            $('#game-window').html(data);
-            $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
-            updateStatusBar();
-        });
+        $.ajax({
+            url: url,
+            dataType: 'html',
+            success: function (data) {
+                $('#game-window').html(data);
+                $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
+                updateStatusBar();
+            }
+        })
+        // $.get(url, function (data) {
+        //     $('#game-window').html(data);
+        //     $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
+        //     updateStatusBar();
+        // });
     }
 
     /**
      * Call this to update the values of the status bar
-     */    
+     */
     function updateStatusBar() {
         $('#sb-level').text(character.level);
         $('#sb-hp').text(character.hp + '(' + character.hpMax + ')');
