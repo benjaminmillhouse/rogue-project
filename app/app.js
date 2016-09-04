@@ -1,3 +1,3 @@
 $(document).ready(function () {
-    $('body').text('Welcome to Rogue!');
+    $('body').text('WElcome tO roGue?');
 });
