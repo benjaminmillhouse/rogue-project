@@ -13,11 +13,6 @@ $(document).ready(function () {
             getMap('./dungeon.html');
         }
     });
-    $('body').keypress(function (event) {
-        if (event.keyCode === 39) {
-            // $('#hero')[0].style.left = 40;
-        }
-    })
 
     /**
      * This function loads the HTML file for the passed-in map, and udpates
@@ -30,6 +25,18 @@ $(document).ready(function () {
         $('#game-window').css('display', 'initial');
         $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
         updateStatusBar();
+        $(document).keydown(function (event) {
+            event.preventDefault();
+            if (event.keyCode === 39) {
+                $('#hero').animate({ left: '+=15' }, 100, 'linear');
+            } else if (event.keyCode === 37) {
+                $('#hero').animate({ left: '-=15' }, 100, 'linear');
+            } else if (event.keyCode === 38) {
+                $('#hero').animate({ top: '-=20' }, 100, 'linear');
+            } else if (event.keyCode === 40) {
+                $('#hero').animate({ top: '+=20' }, 100, 'linear');
+            }
+        })
     }
 
     /**
