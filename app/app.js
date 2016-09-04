@@ -18,7 +18,7 @@ $(document).ready(function () {
     function getMap(url) {
         $.get(url, function (data) {
             $('#game-window').html(data);
-            $('#message-box').text('Welcome, ' + character.name + '!');
+            $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
             updateStatusBar();
         });
     }
