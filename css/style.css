@@ -1,7 +1,42 @@
+/*169, 85, 20 - orange */
+/*255, 94, 253 - magenta */
+/*255, 254, 100 - yellow */
+/*170, 170, 170 - gray */
 body {
     background-color: black;
-    /*169, 85, 20*/
-    color: rgb(169, 85, 20);
-    /*255, 94, 253 - magenta */
-    /*255, 254, 100 - yellow */
+    color: rgb(170, 170, 170);
+    font-size: 2em;
+}
+.room-border {
+    border-color: rgb(169, 85, 20);
+    border-style: double;
+    border-width: 5px;
+}
+.title-box {
+    height: 500px;
+    margin-top: 20px;
+    background: url('../content/img/title-logo.jpg') center/contain no-repeat;
+}
+.cursor {
+    display: inline-block;
+    width: 15px;
+    animation-name: blinking;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-bottom: 2px solid rgb(170, 170, 170);
+}
+@keyframes blinking {
+    0% { border-bottom-color: rgb(170, 170, 170); }
+    70% { border-bottom-color: rgb(170, 170, 170); }
+    100% { border-bottom-color: rgb(0, 0, 0); }
+}
+.form-control {
+    background-color: black;
+    color: rgb(170, 170, 170);
+    border-color: rgb(170, 170, 170);
+}
+
+.form-control:focus {
+    border-color: rgb(169, 85, 20);
 }
