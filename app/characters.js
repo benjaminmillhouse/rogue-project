@@ -45,6 +45,17 @@ Character.prototype.attack = function (target) {
     }
 };
 
+Character.prototype.checkMove = function (direction) {
+    // debugger;
+    switch (direction) {
+        case 'up': return this.element.position().top !== 0;
+        case 'down': return this.element.position().top + 20 !== $('.room').height();
+        case 'left': return this.element.position().left !== 0;
+        case 'right': return this.element.position().left + 15 !== $('.room').width();
+        default: return false;
+    }
+}
+
 Character.prototype.damage = function () {
     return Math.floor((Math.random() * 8 + 1));
 };
@@ -61,7 +72,9 @@ Character.prototype.move = function (direction) {
         'left': {left: '-=15'},
         'right': {left: '+=15'}
     };
-    this.element.animate(moves[direction], 10, 'linear');
+    if (this.checkMove(direction)) {
+        this.element.animate(moves[direction], 10, 'linear');
+    }
 };
 
 /**
