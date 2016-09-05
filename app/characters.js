@@ -38,6 +38,8 @@ Character.prototype.attack = function (target) {
         target.hp -= damage;
         if (this instanceof Enemy) {
              updateMessage(this.name + " hit you for " + damage + "!")
+        } else {
+             updateMessage("You hit the " + target.name + " for " + damage + "!")  
         }
     }
 }
