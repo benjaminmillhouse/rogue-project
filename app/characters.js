@@ -1,4 +1,6 @@
-
+var goldItem = function () {
+   return Math.floor((Math.random() * 20) + 10);
+}
 /**
  * @class
  * This is the base Character class for all characters
@@ -15,11 +17,17 @@ function Character(name, level) {
     this.str = 16;
     this.strMod = 0;
     this.tnl = 10;
-    
+
 }
 
 Character.prototype.toHit = function () {
     return Math.floor((Math.random() * 10) + 1) >= 3;
+}
+
+Character.prototype.pickUpGold = function () {
+    gold = goldItem() * this.level;
+    this.gold += gold;
+    updateMessage("You picked up " + gold + " gold!");
 }
 
 /**
@@ -38,9 +46,9 @@ Character.prototype.attack = function (target) {
         var damage = this.damage();
         target.hp -= damage;
         if (this instanceof Enemy) {
-             updateMessage(this.name + " hit you for " + damage + "!")
+            updateMessage(this.name + " hit you for " + damage + "!")
         } else {
-             updateMessage("You hit the " + target.name + " for " + damage + "!")  
+            updateMessage("You hit the " + target.name + " for " + damage + "!")
         }
     }
 };
@@ -71,10 +79,10 @@ Character.prototype.damage = function () {
  */
 Character.prototype.move = function (direction) {
     var moves = {
-        'up': {top: '-=20'},
-        'down': {top: '+=20'},
-        'left': {left: '-=15'},
-        'right': {left: '+=15'}
+        'up': { top: '-=20' },
+        'down': { top: '+=20' },
+        'left': { left: '-=15' },
+        'right': { left: '+=15' }
     };
     if (this.checkMove(direction)) {
         this.element.animate(moves[direction], 10, 'linear');
