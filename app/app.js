@@ -2,9 +2,10 @@
 // 38 - up
 // 39 - right
 // 40 - down
+// 32 - spacebar
 
 $(document).ready(function () {
-    var character = new Character();
+    var character = new Character('', 1);
     $('input[name="name-input"]').keypress(function (event) {
         // If enter is pressed, save character name and load dungeon
         if (event.keyCode === 13) {
@@ -13,6 +14,7 @@ $(document).ready(function () {
             getMap('./dungeon.html');
         }
     });
+    var bat = new Bat();
 
     /**
      * This function loads the HTML file for the passed-in map, and udpates
@@ -35,6 +37,9 @@ $(document).ready(function () {
                 $('#hero').animate({ top: '-=20' }, 10, 'linear');
             } else if (event.keyCode === 40) {
                 $('#hero').animate({ top: '+=20' }, 10, 'linear');
+            } else if (event.keyCode === 32) {
+                character.attack(bat);
+                bat.attack(character);
             }
         })
     }
