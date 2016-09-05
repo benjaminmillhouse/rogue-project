@@ -39,8 +39,10 @@ $(document).ready(function () {
                 $('#hero').animate({ top: '+=20' }, 10, 'linear');
             } else if (event.keyCode === 32) {
                 character.attack(bat);
-                window.setTimeout(bat.attack.bind(bat, character), 1000);
-                // bat.attack(character);
+                window.setTimeout(function () {
+                    bat.attack(character);
+                    updateStatusBar();
+                }, 1000);
             }
         })
     }
