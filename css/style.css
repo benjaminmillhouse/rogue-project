@@ -20,6 +20,7 @@ body {
 }
 .room {
     background: url('../content/img/room-bg.png');
+    box-sizing: content-box;
 }
 .title-box {
     height: 500px;

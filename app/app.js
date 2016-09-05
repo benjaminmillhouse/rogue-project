@@ -28,13 +28,13 @@ $(document).ready(function () {
         $(document).keydown(function (event) {
             event.preventDefault();
             if (event.keyCode === 39) {
-                $('#hero').animate({ left: '+=15' }, 100, 'linear');
+                $('#hero').animate({ left: '+=15' }, 10, 'linear');
             } else if (event.keyCode === 37) {
-                $('#hero').animate({ left: '-=15' }, 100, 'linear');
+                $('#hero').animate({ left: '-=15' }, 10, 'linear');
             } else if (event.keyCode === 38) {
-                $('#hero').animate({ top: '-=20' }, 100, 'linear');
+                $('#hero').animate({ top: '-=20' }, 10, 'linear');
             } else if (event.keyCode === 40) {
-                $('#hero').animate({ top: '+=20' }, 100, 'linear');
+                $('#hero').animate({ top: '+=20' }, 10, 'linear');
             }
         })
     }
