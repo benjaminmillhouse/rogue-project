@@ -45,8 +45,12 @@ Character.prototype.attack = function (target) {
     }
 };
 
+/**
+ * Checks to see if the character is able to do the pressed move.
+ * Am able to tell by viewing the current position of the character
+ * @param {string} direction
+ */
 Character.prototype.checkMove = function (direction) {
-    // debugger;
     switch (direction) {
         case 'up': return this.element.position().top !== 0;
         case 'down': return this.element.position().top + 20 !== $('.room').height();
