@@ -41,7 +41,6 @@ $(document).ready(function () {
                     '40': 'down'
                 };
                 hero.move(codes[event.keyCode.toString('10')]);
-                // bat.move(down ? '40' : '38');
                 bat.move(down ? 'down' : 'up');
                 down = !down;
             } else if (event.keyCode === 32) {
