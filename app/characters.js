@@ -31,7 +31,7 @@ Character.prototype.levelUp = function () {
     this.str += 1;
     this.exp = 0;
 };
-
+// attack function
 Character.prototype.attack = function (target) {
     if (Character.prototype.toHit()) {
         var damage = this.damage();
