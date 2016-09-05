@@ -56,30 +56,3 @@ $(document).ready(function () {
     }
 });
 
-/**
- * @class
- * This is the base Character class for the hero character
- */
-function Character() {
-    this.armor = 5;
-    this.exp = 0;
-    this.gold = 0;
-    this.hp = 12;
-    this.hpMax = 12;
-    this.level = 1;
-    this.name = '';
-    this.str = 16;
-    this.strMod = 0;
-    this.tnl = 10;
-}
-
-/**
- * This processes a level increase for the character
- */
-Character.prototype.levelUp = function () {
-    this.level += 1;
-    this.hpMax += 10;
-    this.hp = this.hpMax;
-    this.str += 1;
-    this.exp = 0;
-};
