@@ -23,7 +23,7 @@ $(document).ready(function () {
     function getMap(url) {
         $('#title-window').css('display', 'none');
         $('#game-window').css('display', 'initial');
-        $('#message-box').text('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
+        updateMessage('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
         updateStatusBar();
         $(document).keydown(function (event) {
             event.preventDefault();
@@ -37,6 +37,10 @@ $(document).ready(function () {
                 $('#hero').animate({ top: '+=20' }, 10, 'linear');
             }
         })
+    }
+
+    function updateMessage(value) {
+        $('#message-box').text(value);
     }
 
     /**
