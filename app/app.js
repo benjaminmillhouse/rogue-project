@@ -5,13 +5,16 @@
 // 32 - spacebar
 
 $(document).ready(function () {
-    var character = new Character('', 1);
+    var hero = new Character('', 1);
     $('input[name="name-input"]').keypress(function (event) {
         // If enter is pressed, save character name and load dungeon
         if (event.keyCode === 13) {
             var name = event.target.value;
-            character.name = name;
+            hero.name = name;
+            hero.element = $('<span class="icon" id="hero"></span>');
             getMap('./dungeon.html');
+            hero.render();
+            console.log(hero);
         }
     });
     var bat = new Bat();
@@ -25,22 +28,17 @@ $(document).ready(function () {
     function getMap(url) {
         $('#title-window').css('display', 'none');
         $('#game-window').css('display', 'initial');
-        updateMessage('Hello ' + character.name + ', Welcome to the Dungeons of Doom!');
+        updateMessage('Hello ' + hero.name + ', Welcome to the Dungeons of Doom!');
         updateStatusBar();
         $(document).keydown(function (event) {
-            event.preventDefault();
-            if (event.keyCode === 39) {
-                $('#hero').animate({ left: '+=15' }, 10, 'linear');
-            } else if (event.keyCode === 37) {
-                $('#hero').animate({ left: '-=15' }, 10, 'linear');
-            } else if (event.keyCode === 38) {
-                $('#hero').animate({ top: '-=20' }, 10, 'linear');
-            } else if (event.keyCode === 40) {
-                $('#hero').animate({ top: '+=20' }, 10, 'linear');
+            console.log(event.keyCode);
+            // event.preventDefault();
+            if (event.keyCode >= 37 && event.keyCode <= 40) {
+                hero.move(event.keyCode.toString('10'));
             } else if (event.keyCode === 32) {
-                character.attack(bat);
+                hero.attack(bat);
                 window.setTimeout(function () {
-                    bat.attack(character);
+                    bat.attack(hero);
                     updateStatusBar();
                 }, 1000);
             }
@@ -51,12 +49,12 @@ $(document).ready(function () {
      * Call this to update the values of the status bar
      */
     function updateStatusBar() {
-        $('#sb-level').text(character.level);
-        $('#sb-hp').text(character.hp + '(' + character.hpMax + ')');
-        $('#sb-str').text(character.str + '(' + (character.str + character.strMod) + ')');
-        $('#sb-gold').text(character.gold);
-        $('#sb-armor').text(character.armor);
-        $('#sb-exp').text(character.exp + '/' + character.tnl);
+        $('#sb-level').text(hero.level);
+        $('#sb-hp').text(hero.hp + '(' + hero.hpMax + ')');
+        $('#sb-str').text(hero.str + '(' + (hero.str + hero.strMod) + ')');
+        $('#sb-gold').text(hero.gold);
+        $('#sb-armor').text(hero.armor);
+        $('#sb-exp').text(hero.exp + '/' + hero.tnl);
     }
 });
 

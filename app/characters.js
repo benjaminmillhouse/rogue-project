@@ -6,6 +6,7 @@
 function Character(name, level) {
     this.armor = 10;
     this.exp = 0;
+    this.element = $('<span></span>');
     this.gold = 0;
     this.hp = 12;
     this.hpMax = 12;
@@ -42,14 +43,32 @@ Character.prototype.attack = function (target) {
              updateMessage("You hit the " + target.name + " for " + damage + "!")  
         }
     }
-}
+};
 
 Character.prototype.damage = function () {
     return Math.floor((Math.random() * 8 + 1));
-}
+};
 
+/**
+ * Moves the character in the passed direction
+ * @param {string} keyCode - The keyCode of the arrow key that was pressed
+ */
+Character.prototype.move = function (keyCode) {
+    var moves = {
+        '38': {top: '-=20'},
+        '40': {top: '+=20'},
+        '37': {left: '-=20'},
+        '39': {left: '+=20'}
+    };
+    this.element.animate(moves[keyCode], 10, 'linear');
+};
 
-
+/**
+ * Renders the character element to the DOM
+ */
+Character.prototype.render = function () {
+    $('.room').append(this.element);
+};
 
 // Character class for the enemy
 
