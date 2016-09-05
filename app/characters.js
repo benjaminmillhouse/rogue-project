@@ -14,7 +14,7 @@ function Character(name, level) {
     this.str = 16;
     this.strMod = 0;
     this.tnl = 10;
-    this.damage = Math.floor((Math.random() * 8 + 1));
+    
 }
 
 Character.prototype.toHit = function () {
@@ -34,8 +34,16 @@ Character.prototype.levelUp = function () {
 
 Character.prototype.attack = function (target) {
     if (Character.prototype.toHit()) {
-        target.hp -= this.damage;
+        var damage = this.damage();
+        target.hp -= damage;
+        if (this instanceof Enemy) {
+             updateMessage(this.name + " hit you for " + damage + "!")
+        }
     }
+}
+
+Character.prototype.damage = function () {
+    return Math.floor((Math.random() * 8 + 1));
 }
 
 
