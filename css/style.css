@@ -2,16 +2,22 @@
 /*255, 94, 253 - magenta */
 /*255, 254, 100 - yellow */
 /*170, 170, 170 - gray */
+/*87, 92, 252 - blue */
 body {
     background-color: black;
     color: rgb(170, 170, 170);
     font-size: 2em;
     padding-top: 20px;
 }
-#hero { 
-    position: absolute; 
+.icon {
+    position: absolute;
     font-size: 0;
+    height: 20px;
+    width: 15px;
 }
+.icon#hero { background: url('../content/img/hero-icon.png'); }
+.icon.gold { background: url('../content/img/gold-icon.png'); }
+.icon.ring { background: url('../content/img/ring-icon.png'); }
 .room-border {
     border-color: rgb(169, 85, 20);
     border-style: double;
