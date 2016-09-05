@@ -14,7 +14,6 @@ $(document).ready(function () {
             hero.element = $('<span class="icon" id="hero"></span>');
             getMap('./dungeon.html');
             hero.render();
-            console.log(hero);
         }
     });
     var bat = new Bat();
@@ -35,14 +34,21 @@ $(document).ready(function () {
         $(document).keydown(function (event) {
             event.preventDefault();
             if (event.keyCode >= 37 && event.keyCode <= 40) {
-                hero.move(event.keyCode.toString('10'));
+                var codes = {
+                    '37': 'left',
+                    '38': 'up',
+                    '39': 'right',
+                    '40': 'down'
+                };
+                hero.move(codes[event.keyCode.toString('10')]);
+                // bat.move(down ? '40' : '38');
+                bat.move(down ? 'down' : 'up');
+                down = !down;
             } else if (event.keyCode === 32) {
                 hero.attack(bat);
                 window.setTimeout(function () {
                     bat.attack(hero);
                     updateStatusBar();
-                    bat.move(down ? '40' : '38');
-                    down = !down;
                 }, 1000);
             }
         })

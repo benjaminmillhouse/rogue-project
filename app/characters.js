@@ -51,16 +51,17 @@ Character.prototype.damage = function () {
 
 /**
  * Moves the character in the passed direction
- * @param {string} keyCode - The keyCode of the arrow key that was pressed
+ * Valid values: 'up' | 'down' | 'left' | 'right'
+ * @param {string} direction - The direction to move
  */
-Character.prototype.move = function (keyCode) {
+Character.prototype.move = function (direction) {
     var moves = {
-        '38': {top: '-=20'},
-        '40': {top: '+=20'},
-        '37': {left: '-=15'},
-        '39': {left: '+=15'}
+        'up': {top: '-=20'},
+        'down': {top: '+=20'},
+        'left': {left: '-=15'},
+        'right': {left: '+=15'}
     };
-    this.element.animate(moves[keyCode], 10, 'linear');
+    this.element.animate(moves[direction], 10, 'linear');
 };
 
 /**
