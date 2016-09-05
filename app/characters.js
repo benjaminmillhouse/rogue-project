@@ -50,6 +50,12 @@ Character.prototype.attack = function (target) {
         } else {
             updateMessage("You hit the " + target.name + " for " + damage + "!")
         }
+    } else {
+        if (this instanceof Enemy) {
+            updateMessage(this.name + " missed you!")
+        } else {
+            updateMessage("You missed the " + target.name + "!")
+        }
     }
 };
 
