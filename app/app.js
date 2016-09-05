@@ -18,7 +18,8 @@ $(document).ready(function () {
         }
     });
     var bat = new Bat();
-
+    bat.element = $('<span class="icon" style="left: 45px;">B</span>');
+    bat.render();
     /**
      * This function loads the HTML file for the passed-in map, and udpates
      * the view to show it.
@@ -30,9 +31,9 @@ $(document).ready(function () {
         $('#game-window').css('display', 'initial');
         updateMessage('Hello ' + hero.name + ', Welcome to the Dungeons of Doom!');
         updateStatusBar();
+        var down = true;
         $(document).keydown(function (event) {
-            console.log(event.keyCode);
-            // event.preventDefault();
+            event.preventDefault();
             if (event.keyCode >= 37 && event.keyCode <= 40) {
                 hero.move(event.keyCode.toString('10'));
             } else if (event.keyCode === 32) {
@@ -40,6 +41,8 @@ $(document).ready(function () {
                 window.setTimeout(function () {
                     bat.attack(hero);
                     updateStatusBar();
+                    bat.move(down ? '40' : '38');
+                    down = !down;
                 }, 1000);
             }
         })
