@@ -39,10 +39,6 @@ $(document).ready(function () {
         })
     }
 
-    function updateMessage(value) {
-        $('#message-box').text(value);
-    }
-
     /**
      * Call this to update the values of the status bar
      */
@@ -56,3 +52,10 @@ $(document).ready(function () {
     }
 });
 
+/**
+ * Update the message above the game window
+ * @param {string} value message to pass to the box
+ */
+function updateMessage(value) {
+    $('#message-box').text(value);
+}
