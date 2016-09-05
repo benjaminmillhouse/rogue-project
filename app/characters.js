@@ -57,8 +57,8 @@ Character.prototype.move = function (keyCode) {
     var moves = {
         '38': {top: '-=20'},
         '40': {top: '+=20'},
-        '37': {left: '-=20'},
-        '39': {left: '+=20'}
+        '37': {left: '-=15'},
+        '39': {left: '+=15'}
     };
     this.element.animate(moves[keyCode], 10, 'linear');
 };
