@@ -8,7 +8,7 @@ $(document).ready(function () {
     var hero = new Character('', 1);
     $('input[name="name-input"]').keypress(function (event) {
         // If enter is pressed, save character name and load dungeon
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13) {    
             var name = event.target.value;
             hero.name = name;
             hero.element = $('<span class="icon" id="hero"></span>');
