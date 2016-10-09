@@ -1,0 +1,20 @@
+{
+  "name": "rogue-project",
+  "version": "1.0.0",
+  "description": "A re-make of the DOS classic, Rogue!",
+  "main": "./app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjaminmillhouse/rogue-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benjaminmillhouse/rogue-project/issues"
+  },
+  "homepage": "https://github.com/benjaminmillhouse/rogue-project#readme",
+  "private": true
+}
