@@ -1,6 +1,6 @@
 {
   "name": "rogue-project",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A re-make of the DOS classic, Rogue!",
   "main": "./app/app.js",
   "scripts": {
