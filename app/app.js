@@ -3,7 +3,7 @@
 // 39 - right
 // 40 - down
 // 32 - spacebar
-
+//
 $(document).ready(function () {
     var hero = new Character('', 1);
     $('input[name="name-input"]').keypress(function (event) {
