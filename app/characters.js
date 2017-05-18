@@ -1,7 +1,6 @@
 var goldItem = function () {
    return Math.floor((Math.random() * 20) + 10);
 }
-//
 /**
  * @class
  * This is the base Character class for all characters
